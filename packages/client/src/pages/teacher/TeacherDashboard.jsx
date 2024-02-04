@@ -36,7 +36,7 @@ const TeacherDashboard = () => {
     setSelectedDate(date);
   };
 
-  const Assignments = user.teacher.uploadedAssignment.map(assignment => ({
+  const Assignments = user?.teacher.uploadedAssignment.map(assignment => ({
     title: assignment.title,
     date: new Date(assignment.startDate).toLocaleDateString(),
     completed: true,
@@ -54,7 +54,7 @@ const TeacherDashboard = () => {
           <div className='flex flex-row gap-2 md:gap-4 items-center justify-between sm:justify-end w-full sm:w-fit'>
             <div className='flex flex-row gap-3 items-center '>
               <i className='text-[40px] sm:text-[40px] md:text-[50px] fa-regular fa-circle-user'></i>
-              <span>{user.teacher.name}</span>
+              <span>{user?.teacher.name}</span>
             </div>
             <button className='py-1 md:py-2 px-2 md:px-4 bg-red-600 rounded-md hover:bg-red-700 text-white'>
               Logout
@@ -116,14 +116,9 @@ const TeacherDashboard = () => {
                 </section>
               </div>
 
-              <div className='w-full bg-white rounded-xl h-fit  flex flex-col md:flex-row gap-4 overflow-hidden'>
-                <section className='flex flex-col gap-3 w-full md:w-1/2 px-4 py-9'>
-
-
-
-              
-
-              <div className=' flex'>
+            <div className='w-full rounded-xl h-fit  flex flex-col md:flex-row gap-4 overflow-hidden justify-between'>
+               
+              <div className='w-full flex'>
                 <section className='grid grid-cols-1 2xl:grid-cols-2 gap-4 lg:gap-3 bg-white text-black rounded-xl w-full p-2 h-full'>
                   <div className=''><Calendar onSelectDate={handleDateSelect} Assignments={Assignments}/></div>
                   <div className='border-l p-3 border-gray-200'><Updates selectedDate={selectedDate} Assignments={Assignments}/></div>
@@ -131,21 +126,22 @@ const TeacherDashboard = () => {
               </div>
 
             </div>
+          </div>   
 
 
 
 
-            <div className='w-full xl:w-[33%] bg-white rounded-xl h-fit  flex flex-col overflow-hidden'>
+            <div className='w-full xl:w-[33%] bg-white rounded-xl  max-h-[600px] flex flex-col overflow-hidden'>
                 <section className='flex flex-col gap-3 w-full  px-4 py-9'>
 
-                  <p className='text-[16px] font-semibold'>My Teachers</p>
+                  <p className='text-[16px] font-semibold'>My Students</p>
                   <div className='flex flex-col w-full gap-2 overflow-y-scroll hideScrollbar'>
                     <div className='p-3 flex flex-row items-center justify-between gap-3 border-b border-black '>
                       <div className='flex gap-4 items-center'>
                         <i className='text-[30px] fa-regular fa-user'></i>
                         <p className='flex flex-col'>
                           {' '}
-                          <span className='font-semibold'>Sumit Kharate</span>{' '}
+                          <span className='font-semibold'>Vikas Saini</span>{' '}
                           <span>Java,Javascript</span>{' '}
                         </p>
                       </div>
@@ -176,7 +172,7 @@ const TeacherDashboard = () => {
                     </div>
                   </div>
                 </section>
-                <section className='flex flex-col gap-3 w-full px-4 py-9'>
+                {/* <section className='flex flex-col gap-3 w-full px-4 py-9'>
                   <p className='text-[16px] font-semibold'>Uncoming Events</p>
                   <div className='flex flex-col w-full gap-2 overflow-y-scroll hideScrollbar'>
                     <div className='p-3 flex flex-row items-center justify-between gap-3 border-b border-black'>
@@ -202,7 +198,7 @@ const TeacherDashboard = () => {
                       <i className='fa-solid fa-message'></i>
                     </div>
                   </div>
-                </section>
+                </section> */}
               </div>
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import MainLayout from '../../layout/MainLayout'
 import TeacherSidebarLayout from '../../layout/teacher/TeacherSidebarLayout'
@@ -32,16 +32,14 @@ const TeacherSubmissionPage = () => {
 
     fetchAssignment();
 
-    // Cleanup function to cancel any pending requests if the component unmounts
     return () => {};
   }, []);
   
   return (
-    
     <MainLayout>
       <TeacherSidebarLayout />
       <div className='bg-gray-200 p-2 flex flex-col gap-2'>
-        <div className='bg-white w-full rounded-lg p-4'>details</div>
+
         <div className='bg-white w-full rounded-lg p-4'>
           {assignment?.submittedAssignment.teacherComments.map((item)=> (
             <FeedbackList/>
@@ -50,7 +48,7 @@ const TeacherSubmissionPage = () => {
         </div>
       </div>
     </MainLayout>
-  )
+  );
 }
 
 export default TeacherSubmissionPage
